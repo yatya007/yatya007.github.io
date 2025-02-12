@@ -15,15 +15,51 @@
 	販売を通して、ものづくりやビジネスについて
 	
 	実践的に学んでいく団体です。​">
+
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/PopUp.css">
+
+	<style>
+		.info-list {
+			list-style: none;
+			padding: 0;
+			max-width: 500px;
+			margin: 20px auto;
+			font-size: 18px;
+		}
+
+		.info-list li {
+			display: flex;
+			align-items: flex-start; /* 上揃え */
+			border-bottom: 1px solid #ddd;
+			padding: 8px 0;
+		}
+
+		.info-list li:last-child {
+			border-bottom: none;
+		}
+
+		.label {
+			width: 120px; /* ラベル部分の幅を固定 */
+			font-weight: bold;
+			text-align: right; /* 右揃えにしてコロンを統一 */
+			padding-right: 10px; /* コロンと内容の間に余白を作る */
+			flex-shrink: 0;
+		}
+
+		.content {
+			flex-grow: 1; /* 内容部分が伸びるようにする */
+		}
+
+	</style>
+
 </head>
 
 <body class="home">
 
 <div id="trigger-point">
 	<header>
-
-	<h1 id="logo"><a href="index.html"><img src="images/logo_home.png" alt="お店の名前"></a></h1>
+	<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="京大工房"></a></h1>
 
 	<!--スライドショー-->
 	<aside id="mainimg">
@@ -43,7 +79,7 @@
 	<nav>
 	<ul>
 	<li><a href="index.html">ホーム<span>Home</span></a></li>
-	<li><a href="about.html">活動紹介<span>Access</span></a></li>
+	<li><a href="about.html">活動紹介<span>About</span></a></li>
 	<li><a href="goods.html">商品情報<span>Goods</span></a>
 		<ul>
 		<li><a href="goods.html#menu1">2024年度の商品</a></li>
@@ -83,71 +119,80 @@
 <h2><span class="uline">お知らせ</span><span class="small">News</span></h2>
 
 <dl class="new">
+
 <dt>2025/01/15<span>イベント参加</span></dt>
 <dd><a href="recruit.html">百万遍さんの手づくり市</a>に出店しました！</dd>
+
 <dt>2024/12/15<span>イベント参加</span></dt>
 <dd><a href="recruit.html">百万遍さんの手づくり市</a>に出店しました！</dd>
+
 <dt>2024/11/20<span>イベント参加</span></dt>
 <dd>京大NF祭に出展しました。</dd>
+
 <dt>2024/11/15<span>イベント参加</span></dt>
-<dd><a href="recruit.html">百万遍さんの手づくり市</a>に出店しました！</dd>
+<dd><a class="clickable">百万遍さんの手づくり市に出店しました！</a></dd>
+
 <dt>2024/10/29<span class="icon-bg1">新作商品！</span></dt>
 <dd>七面鳥しおりを販売します！</a></dd>
+
 </dl>
 
-<a href="https://q19cms.com/files_m/file/cms_oshirase.html" target="_blank"><img src="https://template-party.com/file/images/cms_oshirase/banner_oshirase_cms2.jpg" alt="無料で使えるお知らせCMSのご案内"></a>
 
 </section>
 
-<section>
-
-<h2><span class="uline">テンプレートのご利用前に必ずお読み下さい</span><span class="small">Please read</span></h2>
-
-<h3>利用規約のご案内</h3>
-<p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『飲食店（カフェ・居酒屋）向け 無料ホームページテンプレート tp_foods10』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.html">利用規約</a>をご一読の上でご利用下さい。</p>
-<p><strong class="color-check">HP最下部の著作表示『Web Design:Template-Party』は無断で削除しないで下さい。</strong><br>
-わざと見えなく加工する事も禁止です。</p>
-<p><strong class="color-check">下部の著作を外したい場合は</strong><br>
-<a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.html">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
-
-<h3>当テンプレートには、新しいパーツをいくつか使用しています</h3>
-<p>一通りの動作確認は行いましたが、一切の不具合が許されない環境のお客様は、当テンプレートのご使用はしばらくの間ご遠慮下さい。<br>
-不具合が発見された場合にすぐの対応ができない可能性があるので、それでも構わない人だけご利用下さい。</p>
-
-<h3>当テンプレートの詳しい使い方は</h3>
-<p><a href="about.html">こちらをご覧下さい。</a></p>
-
-</section>
-
-<section>
-
-<h2 class="dn">ギャラリー</h2>
-
-<div class="thumbnail-slide">
-<a href="#"><img src="images/1.jpg" alt=""></a>
-<a href="#"><img src="images/2.jpg" alt=""></a>
-<a href="#"><img src="images/3.jpg" alt=""></a>
-<a href="#"><img src="images/1.jpg" alt=""></a>
-<a href="#"><img src="images/2.jpg" alt=""></a>
-<a href="#"><img src="images/3.jpg" alt=""></a>
+<!-- ポップアップ の設定-->
+<div id="popupOverlay" class="popup-overlay"></div>
+<div id="popup" class="popup">
+	<button id="closePopup" class="close-btn">×</button>
+	<img src="images/1.jpg" alt="サンプル画像">
+	<p>これはポップアップ内の文章です。</p>
 </div>
 
+
+<section>
+	<h2><span class="uline">京大工房とは</span><span class="small">Please read</span></h2>
+
+	<p>​京大工房は、「学生の視点からアイデアをカタチに」​を理念に京大らしいユニークな商品開発や販売を通して、ものづくりやビジネスについて実践的に学んでいく団体です。</p>
+
+	<p>商品開発の他にも、子供たちに向けたワークショップや企業や大学とのコラボ企画など様々な活動を行っています。</p>
 </section>
 
 <section>
+	<h2 class="dn">ギャラリー</h2>
+	<div class="thumbnail-slide">
+	<a href="#"><img src="images/thumbnail-slide/1.jpg" alt=""></a>
+	<a href="#"><img src="images/thumbnail-slide/2.jpg" alt=""></a>
+	<a href="#"><img src="images/thumbnail-slide/3.jpeg" alt=""></a>
+	<a href="#"><img src="images/thumbnail-slide/1.jpg" alt=""></a>
+	<a href="#"><img src="images/thumbnail-slide/2.jpg" alt=""></a>
+	<a href="#"><img src="images/thumbnail-slide/3.jpeg" alt=""></a>
+	</div>
+</section>
 
-<h2>ノーコードツールのご案内</h2>
-<p>
-	htmlやcssの編集が難しい場合、<a href="https://q19cms.com/" target="_blank">クイックCMS</a>様の
-	ノーコードツール『まるごとホームページCMS』をお勧めいたします。管理画面にログインし、テキストや画像を
-	アップロードするだけでサイトが完成します。無料で試せる試用版あり。（※サーバーはご自身で準備して頂く必要があります。）
-</p>
-<p><a href="https://q19cms.com/" target="_blank"><img src="https://template-party.com/images/banner/banner_marugoto.jpg" alt="クイックCMS"></a></p>
+<section>
+	<h2><span class="uline">活動情報</span><span class="small">Information</span></h2>
+	<p>
+		<ul class="info-list">
+			<li><span class="label">活動日：</span>毎週水曜日 18:45~20:00</li>
+			<li><span class="label">活動場所：</span>京都大学EPラボ・BoCS</li>
+			<li><span class="label">入会費：</span>2000円</li>
+			<li><span class="label">年会費：</span>無料</li>
+			<li><span class="label">入会制限：</span>京大生限定<br>文理問わず、2回生以上も歓迎</li>
+		</ul>
+	</p>
+</section>
 
+<section>
+	<h2><span class="uline">新歓情報</span><span class="small">Joining us</span></h2>
+
+	<p>​京大工房では共に活動してくれるメンバーを募集しています。</p>
+
+	<p>新歓期（4月頃）に限らず年中入会を受け付けておりますので、まずは一度見学にお越しください。</p>
+
+	<p>ご見学を希望の方は各種SNSより見学希望の旨をご連絡ください。</p>
 </section>
 
 </main>
-
 </div>
 
 <!------------------------------------------------------------------------/#contents-------------------------------------------------------------->
@@ -166,7 +211,7 @@
 	<!-- 各SNS -->
 	<ul class="icons">
 	<li><a href="https://x.com/KYOUDAI_KOBO"><i class="fa-brands fa-x-twitter"></i></a></li>
-	<li><a href="#"><i class="fab fa-line"></i></a></li>
+	<li><a href="https://line.me/R/ti/p/%40033ohzom"><i class="fab fa-line"></i></a></li>
 	<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 	<li><a href="https://www.instagram.com/kyoudai_kobo/"><i class="fab fa-instagram"></i></a></li>
 	</ul>
@@ -201,6 +246,9 @@
 
 <!--このテンプレート専用のスクリプト-->
 <script src="js/main.js"></script>
+
+<!--ポップアップ用のスクリプト-->
+<script src="js/popup.js"></script>
 
 </body>
 </html>

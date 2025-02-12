@@ -61,7 +61,7 @@ html,body {
 	@media screen and (min-width:900px) {
 
 	html, body {
-		font-size: 16px;	/*基準となるフォントサイズ。*/
+		font-size: 18px;	/*基準となるフォントサイズ。*/
 	}
 
 	}/*追加指定ここまで*/
