@@ -19,13 +19,13 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/PopUp.css">
 
-	<style>
+	<style> /*表部分の指定*/
 		.info-list {
 			list-style: none;
 			padding: 0;
 			max-width: 500px;
 			margin: 20px auto;
-			font-size: 18px;
+			font-size: 14px;
 		}
 
 		.info-list li {
@@ -50,7 +50,19 @@
 		.content {
 			flex-grow: 1; /* 内容部分が伸びるようにする */
 		}
+		
+		/*画面幅900px以上の追加指定*/
+		@media screen and (min-width:900px) {
 
+			.info-list {
+				list-style: none;
+				padding: 0;
+				max-width: 500px;
+				margin: 20px auto;
+				font-size: 18px;
+			}
+
+		}/*追加指定ここまで*/
 	</style>
 
 </head>
@@ -121,10 +133,10 @@
 <dl class="new">
 
 <dt>2025/01/15<span>イベント参加</span></dt>
-<dd><a href="recruit.html">百万遍さんの手づくり市</a>に出店しました！</dd>
+<dd><a href="about.html#Handmademarket">百万遍さんの手づくり市</a>に出店しました！</dd>
 
 <dt>2024/12/15<span>イベント参加</span></dt>
-<dd><a href="recruit.html">百万遍さんの手づくり市</a>に出店しました！</dd>
+<dd><a href="about.html#Handmademarket">百万遍さんの手づくり市</a>に出店しました！</dd>
 
 <dt>2024/11/20<span>イベント参加</span></dt>
 <dd>京大NF祭に出展しました。</dd>
