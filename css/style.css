@@ -438,6 +438,19 @@ main h2 .uline {
 	border-bottom: 2px solid var(--primary-color);	/*濃い色の線の幅、線種、varは色の事でcss冒頭で指定しているprimary-colorを読み込みます*/
 }
 
+/*画面幅900px以上の追加指定*/
+@media screen and (min-width:900px) {
+
+	main h2 .uline {
+		display: inline-block;position: relative;
+		padding: 0.5rem 0;	/*h2内の余白。上下、左右への順番。*/
+		bottom: -2px;		/*濃い線を薄い線に重ねる為の指定。枠線の幅と合わせます。*/
+		border-bottom: 2px solid var(--primary-color);	/*濃い色の線の幅、線種、varは色の事でcss冒頭で指定しているprimary-colorを読み込みます*/
+		font-size: 20pt;
+	}
+
+}
+
 /*右側の装飾文字の設定*/
 main h2 .small {
 	font-size: 0.6em;	/*文字サイズを親要素の60%に*/
